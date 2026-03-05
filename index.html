@@ -12,7 +12,6 @@
             font-weight: 300;
             font-style: normal;
         }
-
         @font-face {
             font-family: "OpenSauceOne", sans-serif;
             src: url("assets/fonts/OpenSauceOne-Regular.ttf") format("truetype");
@@ -23,6 +22,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+        html{
+            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         body {
             font-family: "OpenSauceOne", sans-serif;
@@ -121,6 +124,11 @@
             padding: 2rem;
             position: relative;
             z-index: 10;
+        }
+        .bg-hero{
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
         }
         .bg-hero::before{
             content: "";
@@ -285,37 +293,61 @@
             opacity: 0.6;
         }
         @media (max-width: 768px) {
+            main{
+                flex: auto;
+                height: calc(100vh - 97px);
+            }
             h1 {
-                font-size: 2.5rem;
+                font-size: 32px;
             }
-
             .subtitle {
-                font-size: 1rem;
+                font-size: 16px;
+                line-height: 24px;
             }
-
             .subscription-form {
                 flex-direction: column;
                 width: 100%;
             }
-
+            .content-wrapper{
+                gap: 24px;
+            }
             .input-wrapper {
                 width: 100%;
             }
-
             .footer-content {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .footer-section:last-child {
                 text-align: left;
             }
-
+            .coin-1{
+                top: 6rem;
+                z-index: 2;
+            }
+            .coin-2{
+                top: 12rem;
+            }
+            .coin-5{
+                top: 8rem;
+                left: -2rem;
+            }
+            .coin-3{
+                bottom: 4rem;
+                right: 0rem;
+            }
+            .coin-4{
+                bottom: -1rem;
+                right: 2rem;
+            }
+            .coin-6{
+                bottom: 2rem;
+                right: -1rem;
+            }
             .coin-1, .coin-3 {
                 width: 6rem;
                 height: 6rem;
             }
-
             .coin-2, .coin-4 {
                 width: 4rem;
                 height: 4rem;
