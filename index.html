@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fortitu - Excellence Is In The Making</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+        @font-face {
+            font-family: "OpenSauceOne", sans-serif;
+            src: url("assets/fonts/OpenSauceOne-Light.ttf") format("truetype");
+            font-weight: 300;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: "OpenSauceOne", sans-serif;
+            src: url("assets/fonts/OpenSauceOne-Regular.ttf") format("truetype");
+            font-weight: 400;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "OpenSauceOne", sans-serif;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #e8f2ed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+        h1{
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 64px;
+            color: #1C4644;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .coin {
+            position: absolute;
+            pointer-events: none;
+            transition: transform 0.3s ease-out;
+            z-index: 1;
+        }
+        .coin-1 {
+            top: 8rem;
+            left: 2rem;
+            width: 9rem;
+            height: 9rem;
+            opacity: 1;
+        }
+        .coin-2 {
+            top: 16rem;
+            left: 1rem;
+            width: 5rem;
+            height: 5rem;
+            opacity: 0.8;
+        }
+        .coin-3 {
+            bottom: 12rem;
+            right: 0rem;
+            width: 8rem;
+            height: 8rem;
+            opacity: 1;
+        }
+        .coin-4 {
+            bottom: 7rem;
+            right: 2rem;
+            width: 5rem;
+            height: 5rem;
+            opacity: 0.8;
+        }
+        .coin-5 {
+            top: 10rem;
+            left: 0rem;
+            width: 4rem;
+            height: 4rem;
+            opacity: 1;
+        }
+        .coin-6 {
+            bottom: 10rem;
+            right: 0rem;
+            width: 4rem;
+            height: 4rem;
+            opacity: 1;
+        }
+        header {
+            width: 100%;
+            background-color: transparent;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #d8d8d8;
+            z-index: 10;
+            position: relative;
+        }
+        .header-content {
+            max-width: 80rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .bg-hero::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/img/bg-green.svg");
+            background-size: cover;
+        }
+        .bg-hero::after{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("assets/img/bg-yellow.svg");
+            background-size: cover;
+        }
+        .content-wrapper {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 56px;
+        }
+        .content-title{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        h1 {
+            font-size: 3.75rem;
+            font-weight: bold;
+            color: #1F4037;
+            line-height: 1.2;
+            margin: 0px;
+        }
+        .subtitle {
+            font-size: 20px;
+            font-weight: 300;
+            color: #5A7C6E;
+            line-height: 36px;
+        }
+        .divider {
+            display: flex;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        .divider-line {
+            width: 72px;
+            height: 3px;
+            border-radius: 20px;
+            background-color: #284D45;
+        }
+        .subscription-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        .input-wrapper {
+            flex: 1;
+            background-color: white;
+            border-radius: 16px;
+            position: relative;
+            width: 456px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 16px;
+        }
+        .input-wrapper::after {
+            content: "";
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: -15px;
+            height: 66px;
+            background: rgba(28, 70, 68, 0.1);
+            filter: blur(10px);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        input[type="email"] {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #1F4A45;
+            font-size: 18px;
+            line-height: 40px;
+        }
+
+        input[type="email"]::placeholder {
+            color: #1F4A45;
+        }
+
+        .submit-button {
+            background-color: #B6902C;
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            right: 16px;
+            top: 0;
+        }
+
+        .submit-button:hover {
+            background-color: #A07F3E;
+        }
+
+        .arrow-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: white;
+        }
+
+        footer {
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 80rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: "Syne", sans-serif;
+            font-weight: bold;
+            color: #1C4644;
+            font-size: 16px;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            color: #1C4644;
+            line-height: 1.6;
+            opacity: 0.6;
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .subscription-form {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .input-wrapper {
+                width: 100%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-section:last-child {
+                text-align: left;
+            }
+
+            .coin-1, .coin-3 {
+                width: 6rem;
+                height: 6rem;
+            }
+
+            .coin-2, .coin-4 {
+                width: 4rem;
+                height: 4rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                font-size: 64px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-hero">
+        <img 
+            src="assets/img/coin-dollar-3.svg" 
+            alt="" 
+            class="coin coin-1"
+            data-intensity="40"
+            data-max-move="25"
+        />
+        <img 
+            src="assets/img/coin-euro-1.svg" 
+            alt="" 
+            class="coin coin-2"
+            data-intensity="60"
+            data-max-move="35"
+        />
+        <img 
+            src="assets/img/coin-pounds-2.svg" 
+            alt="" 
+            class="coin coin-5"
+            data-intensity="40"
+            data-max-move="25"
+        />
+        <img 
+            src="assets/img/coin-dollar-4.svg" 
+            alt="" 
+            class="coin coin-3"
+            data-intensity="50"
+            data-max-move="30"
+        />
+        <img 
+            src="assets/img/coin-yen-2.svg" 
+            alt="" 
+            class="coin coin-4"
+            data-intensity="70"
+            data-max-move="40"
+        />
+        <img 
+            src="assets/img/coin-euro-2.svg" 
+            alt="" 
+            class="coin coin-6"
+            data-intensity="40"
+            data-max-move="25"
+        />
+    </div>
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="assets/img/logo.svg" alt="Fortitu">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="content-wrapper">
+            <div class="content-title">
+                <h1>Excellence Is In The Making</h1>
+                <p class="subtitle">
+                    Our website is being thoughtfully designed to deliver a premium experience. Stay tuned
+                </p>
+            </div>
+            <div class="divider">
+                <div class="divider-line"></div>
+            </div>
+            <form class="subscription-form" onsubmit="handleSubmit(event)">
+                <div class="input-wrapper">
+                    <input 
+                        type="email" 
+                        placeholder="Get early updates"
+                        id="emailInput"
+                        required
+                    />
+                    <button type="submit" class="submit-button">
+                        <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Headquarter</h3>
+                <p>
+                    Maggiore Business Loft no 11 lt 2, Cihuni,<br>
+                    Pagedangan, Tangerang Regency, Banten 15332
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Operational time</h3>
+                <p>
+                    Monday - Saturday<br>
+                    09.00-18.00
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', function(e) {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            updateCoins();
+        });
+
+        function updateCoins() {
+            const coins = document.querySelectorAll('.coin');
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            coins.forEach(coin => {
+                const intensity = parseFloat(coin.dataset.intensity);
+                const maxMove = parseFloat(coin.dataset.maxMove);
+
+                let moveX = (mouseX / windowWidth - 0.5) * intensity;
+                let moveY = (mouseY / windowHeight - 0.5) * intensity;
+
+                moveX = Math.max(-maxMove, Math.min(maxMove, moveX));
+                moveY = Math.max(-maxMove, Math.min(maxMove, moveY));
+
+                coin.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            alert('Thank you for subscribing! We will send updates to: ' + email);
+            document.getElementById('emailInput').value = '';
+        }
+    </script>
+</body>
+</html>
